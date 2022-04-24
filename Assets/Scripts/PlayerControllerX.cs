@@ -16,7 +16,8 @@ public class PlayerControllerX : MonoBehaviour
     private Rigidbody playerRb;
     public ParticleSystem explosionParticle;
     public ParticleSystem fireworksParticle;
-   
+    public ParticleSystem rocketTrace;
+
 
     private AudioSource playerAudio;
     public AudioClip moneySound;
@@ -42,6 +43,7 @@ public class PlayerControllerX : MonoBehaviour
         {
 
             playerRb.AddForce(Vector3.up * floatForce, ForceMode.Impulse);
+            rocketTrace.Play();
             
         }
     }
@@ -52,8 +54,10 @@ public class PlayerControllerX : MonoBehaviour
         if (other.gameObject.CompareTag("Bomb"))
         {
             explosionParticle.Play();
+            rocketTrace.Stop();
             playerAudio.PlayOneShot(explodeSound, 1.0f);
             gameOver = true;
+           
             StartCoroutine("GameOver");
 
             Destroy(other.gameObject);
@@ -81,6 +85,7 @@ public class PlayerControllerX : MonoBehaviour
         
         yield return new WaitForSeconds(waitTime);
         SceneManager.LoadScene("GameOver");
+       
     }
 
 }
