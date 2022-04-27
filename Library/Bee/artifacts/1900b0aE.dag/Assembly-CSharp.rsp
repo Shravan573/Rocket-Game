@@ -352,6 +352,7 @@
 "Assets/Extras/Scripts/PlayerController.cs"
 "Assets/Extras/Scripts/RepeatBackground.cs"
 "Assets/Extras/Scripts/SpawnManager.cs"
+"Assets/Scripts/MainMneu.cs"
 "Assets/Scripts/MoveLeftX.cs"
 "Assets/Scripts/PlayerControllerX.cs"
 "Assets/Scripts/RepeatBackgroundX.cs"
